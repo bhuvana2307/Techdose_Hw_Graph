@@ -1,0 +1,25 @@
+#Implementation of graph using Adjacency Matrix
+def adjacencyMatrix(vertex,u,v):
+    matrix[u][v]=1 
+    matrix[v][u]=1 
+    
+vertices=4 
+matrix=[[0]*vertices for _ in range(vertices)]
+adjacencyMatrix(vertices,0,1)
+adjacencyMatrix(vertices,0,2)
+adjacencyMatrix(vertices,1,2)
+adjacencyMatrix(vertices,2,3)
+print(matrix)
+
+#Implementation of graph using Adjacency List 
+def adjacencyList(vertex,u,v):
+    lists[u].append(v)
+    lists[v].append(u)
+
+vertices=4 
+lists={i:[] for i in range(vertices)}
+adjacencyList(vertices,0,1)
+adjacencyList(vertices,0,2)
+adjacencyList(vertices,1,2)
+adjacencyList(vertices,2,3)
+print(lists)
