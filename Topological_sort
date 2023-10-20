@@ -1,0 +1,40 @@
+#Topological sort using dfs
+
+def dfs(node,visited,stack,adjlist):
+    visited[node]=1 
+    for n in adjlist[node]:
+        if not visited[n]:
+            dfs(n,visited,stack,adjlist)
+    stack.append(node)
+        
+
+def topologicalSort(vertex,adjlist,stack):
+    visited=[0]*vertex
+    for i in range(0,vertex):
+        if not visited[i]:
+            dfs(i,visited,stack,adjlist)
+    
+
+def adjacencyList(vertex, u, v=None):
+    if v is not None:
+        lists[u].append(v)
+    else:
+        lists[u] = []
+vertices=6
+lists={i:[] for i in range(vertices)}
+adjacencyList(vertices,0)
+adjacencyList(vertices,1)
+adjacencyList(vertices,2,3)
+adjacencyList(vertices,3,1)
+adjacencyList(vertices,4,0)
+adjacencyList(vertices,4,1)
+adjacencyList(vertices,5,0)
+adjacencyList(vertices,5,2)
+
+
+stack=[]
+res=[]
+topologicalSort(vertices,lists,stack)
+while stack:
+    res.append(stack.pop())
+print(res)
